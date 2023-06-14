@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   //   pdfParser.on("pdfParser_dataReady", (pdfData) => {
   //       res.status(200).send(pdfParser.getRawTextContent())
   //   })
-  res.status(200).send('hello')
+  res.status(200).send('hello2')
 });
 
 module.exports = router;
