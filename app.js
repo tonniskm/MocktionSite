@@ -1,40 +1,20 @@
-const app = require('express')()
-const PDFParser = require("pdf2json");
-const PORT = 8080
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-app.listen(PORT,
-    ()=>console.log(`hi${PORT}`)
-    )
+var indexRouter = require('./routes/index');
+var quotesRouter = require('./routes/quotes');
 
+var app = express();
 
-app.get('/yoyo',(req,res)=>{
-    res.status(200).send({
-        test:1,
-        another:4
-    })
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-})
+app.use('/', indexRouter);
+app.use('/quotes', quotesRouter);
 
-app.get('/hi',(req,res)=>{
-    res.status(200).send('Hi Carol!')
-})
-
-app.get('/getText',(req,res)=>{
-    let pdfParser = new PDFParser(this, 1);
-    pdfParser.loadPDF(`PDF.pdf`);
-    pdfParser.on("pdfParser_dataReady", (pdfData) => {
-        res.status(200).send(pdfParser.getRawTextContent())
-    })
-
-})
-
-router.get('/',(req,res)=>{
-    let pdfParser = new PDFParser(this, 1);
-    pdfParser.loadPDF(`PDF.pdf`);
-    pdfParser.on("pdfParser_dataReady", (pdfData) => {
-        res.status(200).send(pdfParser.getRawTextContent())
-    })
-
-})
+module.exports = app;
