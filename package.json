@@ -1,0 +1,23 @@
+{
+  "name": "mocktionsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonniskm/MocktionSite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonniskm/MocktionSite/issues"
+  },
+  "homepage": "https://github.com/tonniskm/MocktionSite#readme",
+  "dependencies": {
+    "pdf2json": "~2.0.1"
+  }
+}
