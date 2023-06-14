@@ -12,7 +12,8 @@
     "morgan": "~1.9.1",
     "pdf-parse": "^1.1.1",
     "pdf2json": "~2.0.1",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@architect/sandbox": "^3.3.7"
