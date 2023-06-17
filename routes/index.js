@@ -7,13 +7,7 @@ const request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // let pdfParser = new PDFParser(this, 1);
-  //   pdfParser.loadPDF(`PDF.pdf`);
-    // pdfParser.on("pdfParser_dataReady", (pdfData) => {
-    //     // res.status(200).send(pdfParser.getRawTextContent())
-    //     // res.status(200).send('hi')
-    // })
-  // res.status(200).send('hello3')
+
   request({ url: pdfUrl, encoding: null }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       const options = {};
@@ -27,5 +21,9 @@ router.get('/', function(req, res, next) {
     }
   });
 });
+
+router.get('/:year',function(req,res,next){
+  res.status(200).send(req.params)
+})
 
 module.exports = router;
