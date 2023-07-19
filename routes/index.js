@@ -26,10 +26,10 @@ router.get('/:year',function(req,res,next){
   const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFLDK20'+req.params.year+'_CS_NonPPR300.pdf';
   if (parseInt(req.params.year) >= 23){
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year.toString()+'/NFL'+req.params.year.toString()+'_CS_Non300.pdf';
-   pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
+  //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
   }
   console.log('here')
-  if (parseInt(req.params.year) >= 23){res.send('23')}else{res.send('nop33e')}
+  if (parseInt(req.params.year) >= 23){res.send('23')}else{res.send('nop3e')}
   // request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
   //   if (!error && response.statusCode === 200) {
   //     const options = {};
