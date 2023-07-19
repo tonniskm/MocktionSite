@@ -23,9 +23,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:year',function(req,res,next){
-  // const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFLDK20'+req.params.year+'_CS_NonPPR300.pdf';
-  const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
-  if (req.params.year >= 23){
+  const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFLDK20'+req.params.year+'_CS_NonPPR300.pdf';
+  if (parseInt(req.params.year) >= 23){
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFL'+req.params.year+'_CS_Non300.pdf';
    pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
   }
