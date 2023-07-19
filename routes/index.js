@@ -27,22 +27,27 @@ router.get('/:year',function(req,res,next){
   if (parseInt(req.params.year) >= 23){
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year.toString()+'/NFL'+req.params.year.toString()+'_CS_Non300.pdf';
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
-  res.send('23')
+  getData('https://g.espncdn.com/s/ffldraftkit/'+req.params.year.toString()+'/NFL'+req.params.year.toString()+'_CS_Non300.pdf')
+  // res.send('23')
   }else{
-    res.send('no')
+    // res.send('no')
+    getData(pdfUrl2)
   }
-  // request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
-  //   if (!error && response.statusCode === 200) {
-  //     const options = {};
-  //     PDFParser(body, options)
-  //       .then(function(data) {
-  //           res.status(200).send(data)
-  //       })
-  //       .catch(function(error) {
-  //         console.error(error);
-  //       });
-  //   }
-  // });
+  function getData(usedUrl){
+request({ url: usedUrl, encoding: null }, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const options = {};
+      PDFParser(body, options)
+        .then(function(data) {
+            res.status(200).send(data)
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
+  });
+  }
+  
 })
 
 module.exports = router;
