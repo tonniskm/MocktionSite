@@ -29,7 +29,7 @@ router.get('/:year',function(req,res,next){
    pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
   }
   console.log('here')
-  if (parseInt(req.params.year) >= 23){res.send(pdfUrl2)}else{res.send('nope')}
+  if (parseInt(req.params.year) >= 23){res.send('hi')}else{res.send('nope')}
   // request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
   //   if (!error && response.statusCode === 200) {
   //     const options = {};
