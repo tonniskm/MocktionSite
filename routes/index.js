@@ -24,6 +24,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/:year',function(req,res,next){
   const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFLDK20'+req.params.year+'_CS_NonPPR300.pdf';
+  if (req.params.year >= 23){
+   pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFL'+req.params.year+'_CS_Non300.pdf';
+  }
   request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       const options = {};
