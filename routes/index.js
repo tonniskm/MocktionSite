@@ -27,19 +27,21 @@ router.get('/:year',function(req,res,next){
   if (parseInt(req.params.year) >= 23){
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFL'+req.params.year+'_CS_Non300.pdf';
   //  pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+'23'+'/NFL'+'23'+'_CS_Non300.pdf';
-  
-  request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      const options = {};
-      PDFParser(body, options)
-        .then(function(data) {
-            res.status(200).send(data)
-        })
-        .catch(function(error) {
-          console.error(error);
-        });
-    }
-  });}
+  }
+  console.log('here')
+  res.send(req.params.year)
+  // request({ url: pdfUrl2, encoding: null }, function(error, response, body) {
+  //   if (!error && response.statusCode === 200) {
+  //     const options = {};
+  //     PDFParser(body, options)
+  //       .then(function(data) {
+  //           res.status(200).send(data)
+  //       })
+  //       .catch(function(error) {
+  //         console.error(error);
+  //       });
+  //   }
+  // });
 })
 
 module.exports = router;
