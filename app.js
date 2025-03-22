@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var quotesRouter = require('./routes/quotes');
+var callESPNRouter = require('./routes/callESPN');
 
 var app = express();
 
@@ -14,7 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+
 app.use('/quotes', quotesRouter);
+app.use('/call',callESPNRouter);
+app.use('/', indexRouter);
 
 module.exports = app;
+
+app.listen(5432)
