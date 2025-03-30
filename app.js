@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var quotesRouter = require('./routes/quotes');
 var callESPNRouter = require('./routes/callESPN');
 var callESPNProjRouter = require('./routes/callESPNProj');
+var rajanRouter = require('./routes/fullRajan')
+var rajanRouterRaw = require('./routes/fullRajanRaw')
 
 var app = express();
 
@@ -22,7 +24,9 @@ app.use('/quotes', quotesRouter);
 app.use('/call',callESPNRouter);
 app.use('/callProj',callESPNProjRouter);
 app.use('/', indexRouter);
+app.use('/projrajan',rajanRouter)
+app.use('/rawrajan',rajanRouterRaw)
  
 module.exports = app;
 
-// app.listen(5432)
+app.listen(5432)
