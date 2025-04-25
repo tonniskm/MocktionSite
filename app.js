@@ -10,9 +10,10 @@ var callESPNRouter = require('./routes/callESPN');
 var callESPNProjRouter = require('./routes/callESPNProj');
 var rajanRouter = require('./routes/fullRajan')
 var rajanRouterRaw = require('./routes/fullRajanRaw')
+var rajanProjFull = require('./routes/rajanProjFull')
 
 var app = express();
-
+ 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // }))
 app.use(cors())
 
+app.use('/test',rajanProjFull)
 app.use('/quotes', quotesRouter);
 app.use('/call',callESPNRouter);
 app.use('/callProj',callESPNProjRouter);
@@ -36,4 +38,4 @@ app.use('/rawrajan',rajanRouterRaw)
  
 module.exports = app;
 
-// app.listen(5432)
+app.listen(5432)
