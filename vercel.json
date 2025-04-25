@@ -7,5 +7,5 @@
   "routes": [
     { "src": "/(.*)", "dest": "/app.js" }
   ],
-  "functions":{"api/test":{"maxDuration":120}}
+  "functions":{"src/api/rajanProjFull.js":{"maxDuration":60}}
 }

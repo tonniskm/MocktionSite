@@ -34,13 +34,12 @@ router.get('/:yearMax', function(req, res, next) {
                 }
             }).then(result=>result.json()).then(json=>{
                 try{
-
+                    if(json!==undefined){
                     if(year<2018){json=json[year-2012]['schedule']}else{json=json['schedule']}
                     let playoffStart = 1000
                     let byeCount = 0
                     let winnersBracket = []
                     let losersBracket = []
-                    if(json!==undefined){
             
                         for(let i=0;i<json.length;i++){ //for each game in the season
                             //get the winner and loser scores
