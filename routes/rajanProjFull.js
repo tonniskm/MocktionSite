@@ -1,4 +1,4 @@
-// export const maxDuration = 120
+export const maxDuration = 120
 const express = require('express');
 const router = express.Router();
 
