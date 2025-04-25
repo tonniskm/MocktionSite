@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
 app.use('/test',rajanProjFull)
-app.use('/quotes', quotesRouter);
-app.use('/call',callESPNRouter);
-app.use('/callProj',callESPNProjRouter);
+// app.use('/quotes', quotesRouter);
+// app.use('/call',callESPNRouter);
+// app.use('/callProj',callESPNProjRouter);
 app.use('/', indexRouter);
 app.use('/projrajan',rajanRouter)
 app.use('/rawrajan',rajanRouterRaw)

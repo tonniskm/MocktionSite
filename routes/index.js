@@ -24,6 +24,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:year',function(req,res,next){
   try{
+    console.log('here')
 
     const pdfUrl2 = 'https://g.espncdn.com/s/ffldraftkit/'+req.params.year+'/NFLDK20'+req.params.year+'_CS_NonPPR300.pdf';
     if (parseInt(req.params.year) >= 23){
@@ -36,6 +37,7 @@ router.get('/:year',function(req,res,next){
       getData(pdfUrl2)
     }
     function getData(usedUrl){
+      console.log(usedUrl)
   request({ url: usedUrl, encoding: null }, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         const options = {};
@@ -46,6 +48,8 @@ router.get('/:year',function(req,res,next){
           .catch(function(error) {
             console.error(error);
           });
+      }else{
+        res.status(404).send('error')
       }
     });
     }
